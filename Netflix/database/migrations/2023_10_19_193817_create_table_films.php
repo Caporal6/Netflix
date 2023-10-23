@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('films', function (Blueprint $table) {
             $table->id();
             $table->string('titre',100);
+            $table->string('categorie',100);
             $table->text('resume');
             $table->double('duree');
             $table->unsignedBigInteger('realisateur');
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->foreign('producteur')->references('id')->on('acteurs');
             $table->integer('annee');
             $table->integer('rating');
+            $table->string('photo');
             $table->timestamps();
         });
     }
