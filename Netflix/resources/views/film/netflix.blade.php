@@ -37,7 +37,7 @@
               @foreach($films as $film)
                   <h1>{{$film->titre}}</h1>
                   <img src="{{$film->photo}}">
-              @eandforeach
+              @endforeach
           @else
             <p>marche pas</p>
           @endif
