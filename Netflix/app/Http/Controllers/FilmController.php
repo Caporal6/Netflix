@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Film;
 use Illuminate\Http\Request;
-use App\Models\Film;
+use App\Models\Films;
 
 class FilmController extends Controller
 {
