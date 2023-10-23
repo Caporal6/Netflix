@@ -15,9 +15,8 @@ use App\Http\Controllers\NetflixController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',
+    [NetflixController::class, 'index'])->name('netflix.netflix');
 
 
 Route::get('index',

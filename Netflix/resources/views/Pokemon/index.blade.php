@@ -9,14 +9,14 @@
 <body>
     <h1>Hello PD !!!!!!!!!!!</h1>
 
-    <!--Comme du PHP -->
+    <!--Comme du PHP 
     @if(count($films))
         @foreach($films as @film)
             <h1>{{$pokemon->nom}}</h1>
             <img src="{{$film->photos}}">
         @eandforeach
     @else
-
+    -->
 
 
 </body>
