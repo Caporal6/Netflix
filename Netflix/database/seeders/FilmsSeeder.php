@@ -144,7 +144,6 @@ class FilmsSeeder extends Seeder
             'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
           
-
         ]);
         }
         

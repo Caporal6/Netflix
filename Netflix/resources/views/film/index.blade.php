@@ -32,15 +32,15 @@
           <div class="box">
 
 
-
           @if(count($films))
               @foreach($films as $film)
-                  <h1>{{$film->titre}}</h1>
+
                   <img src="{{$film->photo}}">
               @endforeach
           @else
             <p>marche pas</p>
           @endif
+
 
 
 
