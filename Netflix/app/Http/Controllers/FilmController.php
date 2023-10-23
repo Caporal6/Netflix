@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
 use Illuminate\Http\Request;
 
-class NetflixController extends Controller
+class FilmController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return View('film.netflix');
+        $films = Film::all();
+
+        return View('film.index',compact($films));
     }
 
     /**
