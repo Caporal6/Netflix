@@ -15,7 +15,8 @@ class FilmsSeeder extends Seeder
         DB::table('films')->insert([
           [
             'id' => 1,
-            'titre' => 'xavier',
+            'titre' => 'Pan',
+            'categorie'=> 'Action',
             'resume' => 'yessir mon homme',
             'duree' => 25,
             'realisateur' => 1,
@@ -27,6 +28,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 2,
             'titre' => 'Malik',
+            'categorie'=> 'Action',
             'resume' => 'Money',
             'duree' => 65,
             'realisateur' => 1,
@@ -38,6 +40,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 3,
             'titre' => 'FX',
+            'categorie'=> 'Aventure',
             'resume' => 'Un peux Orto',
             'duree' => 95,
             'realisateur' => 1,
@@ -49,6 +52,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 4,
             'titre' => 'Dai',
+            'categorie'=> 'Aventure',
             'resume' => 'Casse couille',
             'duree' => 56,
             'realisateur' => 1,
@@ -60,6 +64,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 5,
             'titre' => 'Alex',
+            'categorie'=> 'Horreur',
             'resume' => 'El Daron',
             'duree' => 25,
             'realisateur' => 1,
@@ -71,6 +76,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 6,
             'titre' => 'Maya',
+            'categorie'=> 'Horreur',
             'resume' => 'Best gf',
             'duree' => 11,
             'realisateur' => 1,
@@ -82,6 +88,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 7,
             'titre' => 'Walid',
+            'categorie'=> 'Comedie',
             'resume' => ';)',
             'duree' => 68,
             'realisateur' => 1,
@@ -93,6 +100,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 8,
             'titre' => 'Ben',
+            'categorie'=> 'Comedie',
             'resume' => 'Best Man',
             'duree' => 95,
             'realisateur' => 1,
@@ -104,6 +112,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 9,
             'titre' => 'xavierPoche',
+            'categorie'=> 'Amour',
             'resume' => 'Yer poche',
             'duree' => 45,
             'realisateur' => 1,
@@ -116,6 +125,7 @@ class FilmsSeeder extends Seeder
           [
             'id' => 10,
             'titre' => 'xavierCool',
+            'categorie'=> 'Amour',
             'resume' => 'Yer cool',
             'duree' => 25,
             'realisateur' => 1,
