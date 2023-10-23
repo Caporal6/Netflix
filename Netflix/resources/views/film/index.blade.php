@@ -58,12 +58,14 @@
 
       <h1 id="movies">Blockbuster Action & Adventure</h1>
       <div class="box">
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m1.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m2.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m3.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m4.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m5.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m6.PNG?raw=true" alt=""></a>                
+
+      @if(count($films))
+              @foreach($films as $film)
+              <a href=""><img src="{{$film->photo}}"></a>
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif              
       </div>
 
       <h1 id="originals">Netflix Originals</h1>

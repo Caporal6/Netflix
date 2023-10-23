@@ -14,9 +14,9 @@ class FilmController extends Controller
     public function index()
     {
         $films = Film::all();
-        return View('film.index', compact('films'));
+        $films2 = Film::where('categorie', 'Horreur')->get();
 
-
+        return View('film.index', compact('films','films2'));
     }
 
     /**
