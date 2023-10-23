@@ -3,7 +3,7 @@
 use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PokemonsController;
-use App\Http\Controllers\NetflixController;
+
 
 /*
 |--------------------------------------------------------------------------
