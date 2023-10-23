@@ -22,7 +22,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2004,
-            'rating' => 5
+            'rating' => 5,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -34,7 +35,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2002,
-            'rating' => 10
+            'rating' => 10,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -46,7 +48,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2006,
-            'rating' => 7
+            'rating' => 7,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -58,7 +61,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2008,
-            'rating' => 10
+            'rating' => 10,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -70,7 +74,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2020,
-            'rating' => 2
+            'rating' => 2,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -82,7 +87,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2021,
-            'rating' => 3
+            'rating' => 3,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -94,7 +100,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 1999,
-            'rating' => 11
+            'rating' => 11,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -106,7 +113,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2004,
-            'rating' => 13
+            'rating' => 13,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
           [
@@ -118,7 +126,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2004,
-            'rating' => 1
+            'rating' => 1,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
 
 
@@ -131,7 +140,8 @@ class FilmsSeeder extends Seeder
             'realisateur' => 1,
             'producteur' => 1,
             'annee' => 2006,
-            'rating' => 8
+            'rating' => 8,
+            'photo' => 'https://www.cinetrafic.fr/images/affiches/original/aff_1587020190610160005.jpg'
           ],
           
 
