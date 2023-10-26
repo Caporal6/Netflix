@@ -80,7 +80,7 @@
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o5.PNG?raw=true" alt=""></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o6.PNG?raw=true" alt=""></a>                
       </div>
->>>>>>> 687dc6efdae788feacf6478b0762fbfef3b37614
+
      
     <!-- END OF MAIN CONTAINER -->
 
