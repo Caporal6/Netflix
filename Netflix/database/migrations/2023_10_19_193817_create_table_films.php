@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('categorie',100);
             $table->text('resume');
             $table->double('duree');
-            $table->unsignedBigInteger('realisateur');
-            $table->foreign('realisateur')->references('id')->on('acteurs');
-            $table->unsignedBigInteger('producteur');
-            $table->foreign('producteur')->references('id')->on('acteurs');
+            $table->unsignedBigInteger('realisateur_id');
+            $table->foreign('realisateur_id')->references('id')->on('acteurs');
+            $table->unsignedBigInteger('producteur_id');
+            $table->foreign('producteur_id')->references('id')->on('acteurs');
             $table->integer('annee');
             $table->integer('rating');
             $table->string('photo');
