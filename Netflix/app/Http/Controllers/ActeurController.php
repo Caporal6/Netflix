@@ -2,24 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Film;
+use App\Models\Acteur;
 use Illuminate\Http\Request;
-use App\Models\Films;
 
-class FilmController extends Controller
+class ActeurController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $films = Film::all();
-
-
-        $films2 = Film::where('categorie', 'Horreur')->get();
-
-
-        return View('film.index', compact('films','films2'));
+        $acteurs = Acteur::all();
+        return view('acteur.index',["acteurs"=>$acteurs]);
     }
 
     /**
@@ -43,9 +37,7 @@ class FilmController extends Controller
      */
     public function show(string $id)
     {
-        $film = Film::find($id);
-
-        return view('film.show',['film'=>$film]);
+        //
     }
 
     /**

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PokemonsController;
+use App\Http\Controllers\ActeurController;
 
 
 /*
@@ -16,13 +16,9 @@ use App\Http\Controllers\PokemonsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('index',
-[PokemonsController::class, 'index'])->name('film.index');
 
 
 Route::get('/',[FilmController::class,'index'])->name('film.index');
+Route::get('/films/{id}',[FilmController::class,'show'])->name('film.show');
+
+Route::get('/acteurs',[ActeurController::class,'index'])->name('acteur.index');
