@@ -14,9 +14,9 @@ class Film extends Model
         return $this->belongsTo(Acteur::class);
     }
 
-    public function realisateurs()
+    public function acteurs()
     {
-        return $this->belongsToMany('App\Acteur','acteur_id');
+        return $this->belongsToMany(Acteur::class);
     }
 
     public function producteur()

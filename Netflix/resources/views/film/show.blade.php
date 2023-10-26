@@ -12,14 +12,30 @@
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          <h1 id="home">{{ $film->realisateur->nom }}</h1>
-          <div class="box">
-
+          <h1 id="home">{{ $film->titre }}</h1>
          
-      
-          </div>
       </div>
       
+      <div class="container">
+      <div class="row">
+            <div class="col-md-6">
+              <img src="{{ $film->photo }}" alt="" class="img-fluid w-100 h-100">
+            </div>
+            <div class="col-md-5 offset-md-1">
+              <h2>{{ $film->categorie }}</h2>
+              <h4>{{ $film->duree }} Min</h4>
+              <h4>{{ $film->resume }}</h4>
+              <h4>{{ $film->rating }}</h4>
+              <h4>{{ $film->annee }}</h4>
+              <h3>Acteurs</h3>
+              <ul>
+                @foreach($film->acteurs as $acteur)
+                  <li>{{ $acteur->nom }}</li>
+                @endforeach
+              </ul>
+            </div>
+      </div>
+      </div>
      
     <!-- END OF MAIN CONTAINER -->
 
