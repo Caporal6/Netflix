@@ -9,8 +9,8 @@ class Film extends Model
 {
     use HasFactory;
 
-    public function realisateur()
+    public function realisateurs()
     {
-        return $this->belongsToMany('App\HTTP\Model\Acteur');
+        return $this->belongsToMany('App\Http\Models\Acteur');
     }
 }
