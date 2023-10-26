@@ -10,6 +10,8 @@ class Acteur extends Model
     use HasFactory;
 
     public function films(){
-        return $this->belongsToMany('App\Film','Film_id');
+        return $this->belongsToMany('App\Film','film_id');
     }
+    
+    
 }

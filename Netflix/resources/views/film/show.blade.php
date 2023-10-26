@@ -12,10 +12,10 @@
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          <h1 id="home">Popular on Netflix</h1>
+          <h1 id="home">{{ $film->realisateur->nom }}</h1>
           <div class="box">
 
-            {{ $film->realisateur->nom }}
+         
       
           </div>
       </div>
