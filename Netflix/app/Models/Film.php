@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Film extends Model
 {
     use HasFactory;
+
+    public function realisateur()
+    {
+        return $this->belongsToMany('App\HTTP\Model\Acteur');
+    }
 }
