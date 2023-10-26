@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acteur;
 use Illuminate\Http\Request;
 
 class ActeurController extends Controller
@@ -11,7 +12,8 @@ class ActeurController extends Controller
      */
     public function index()
     {
-        return view('acteur.index');
+        $acteurs = Acteur::all();
+        return view('acteur.index',["acteurs"=>$acteurs]);
     }
 
     /**

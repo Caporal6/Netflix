@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
   @section('title')
-    Films
+    
   @endsection
   
   @section('contenue')
