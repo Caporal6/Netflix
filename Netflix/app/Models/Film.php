@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Film extends Model
 {
     use HasFactory;
-    
-    public function realisateur(){
-     return $this->belongsTo(Acteur::class);   
+
+    public function realisateur()
+    {
+        return $this->belongToMany('App\Acteur','Acteur_id');
     }
 
+    public function producteur()
+    {
+        return $this->belongToMany('App\Acteur','Acteur_id');
+    }
 }

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Acteur extends Model
 {
     use HasFactory;
+
     public function films(){
-        return $this->hasMany(Film::class);
+        return $this->belongsToMany('App\Film','Film_id');
     }
 }
