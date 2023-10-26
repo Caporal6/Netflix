@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Film;
 use Illuminate\Http\Request;
+use App\Models\Films;
 
 class FilmController extends Controller
 {
@@ -13,8 +14,12 @@ class FilmController extends Controller
     public function index()
     {
         $films = Film::all();
-        return view('film.index',['films'=>$films]);
 
+
+        $films2 = Film::where('categorie', 'Horreur')->get();
+
+
+        return View('film.index', compact('films','films2'));
     }
 
     /**
