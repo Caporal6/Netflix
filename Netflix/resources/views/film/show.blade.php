@@ -1,50 +1,25 @@
 @extends('layouts.app')
 
   @section('title')
-    
+    Films
   @endsection
   
   @section('contenue')
   <div class="wrapper">
 
-    <!-- HEADER -->
-    <header>
-      <div class="netflixLogo">
-        <a id="logo" href="#home"><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image"></a>
-      </div>      
-      <nav class="main-nav">                
-        <a href="#home">Home</a>
-        <a href="#tvShows">TV Shows</a>
-        <a href="#movies">Movies</a>
-        <a href="#originals">Originals</a>
-        <a href="#">Recently Added</a>
-        <a target="_blank" href="https://codepen.io/cb2307/full/NzaOrm">Portfolio</a>        
-      </nav>
-      <nav class="sub-nav">
-        <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
-        <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
-        <a href="#">Account</a>        
-      </nav>      
-    </header>
-    <!-- END OF HEADER -->
+
     
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          <h1 id="home">Popular on Netflix</h1>
+          <h1 id="home">{{ $film->realisateur->nom }}</h1>
           <div class="box">
 
-            @foreach ($films as $film)
-                <span>{{ $film->titre }}</span>
-                 <span>{{ $film->realisateur }}</span>
-                 <a href="">
-                 <img src="{{ $film->photo }}" alt="">
-                 </a>
-            @endforeach
-           
+         
+      
           </div>
       </div>
-    
+      
      
     <!-- END OF MAIN CONTAINER -->
 
