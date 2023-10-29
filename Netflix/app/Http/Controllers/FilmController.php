@@ -14,12 +14,13 @@ class FilmController extends Controller
     public function index()
     {
         $films = Film::all();
+        $filmsHR = Film::where('categorie', 'Horreur')->get();
+        $filmsAC = Film::where('categorie', 'Action')->get();
+        $filmsAV = Film::where('categorie', 'Aventure')->get();
+        $filmsCM = Film::where('categorie', 'Comedie')->get();
+        $filmsAM = Film::where('categorie', 'Amour')->get();
 
-
-        $films2 = Film::where('categorie', 'Horreur')->get();
-
-
-        return View('film.index', compact('films','films2'));
+        return View('film.index', compact('films','filmsHR','filmsAC','filmsAV','filmsCM','filmsAM'));
     }
 
     /**

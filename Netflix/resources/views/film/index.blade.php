@@ -12,7 +12,7 @@
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          <h1 id="home">Popular on Netflix</h1>
+          <h1 id="home">Populair sur Netflix</h1>
           <div class="box">
 
 
@@ -31,39 +31,34 @@
       </div>
       
 
-      <h1 id="myList">Trending Now</h1>
+      <h1 id="myList">Actions</h1>
       <div class="box">
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t2.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t3.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t4.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t5.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t6.PNG?raw=true" alt=""></a>                  
+      @if(count($filmsAC))
+              @foreach($filmsAC as $film)
+              <a href=""><img src="{{$film->photo}}"></a>
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif                   
       </div>
       
-      <h1 id="tvShows">TV Shows</h1>
+      <h1 id="tvShows">Aventures</h1>
       <div class="box">
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv2.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv3.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv4.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv5.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv6.PNG?raw=true" alt=""></a>
-
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv7.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv8.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv9.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv10.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv11.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv12.PNG?raw=true" alt=""></a>              
+      @if(count($filmsAV))
+              @foreach($filmsAV as $film)
+              <a href=""><img src="{{$film->photo}}"></a>
+              @endforeach
+          @else
+            <p>marche pas</p>
+      @endif         
       </div>
       
 
-      <h1 id="movies">Blockbuster Action & Adventure</h1>
+      <h1 id="movies">Horreurs</h1>
       <div class="box">
 
-      @if(count($films))
-              @foreach($films as $film)
+      @if(count($filmsHR))
+              @foreach($filmsHR as $film)
               <a href=""><img src="{{$film->photo}}"></a>
               @endforeach
           @else
@@ -71,17 +66,45 @@
           @endif              
       </div>
 
-      <h1 id="originals">Netflix Originals</h1>
-      <div class="box">
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o1.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o2.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o3.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o4.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o5.PNG?raw=true" alt=""></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o6.PNG?raw=true" alt=""></a>                
-      </div>
->>>>>>> 687dc6efdae788feacf6478b0762fbfef3b37614
+
+      <h1 id="home">Comédie</h1>
+          <div class="box">
+
+
+          @if(count($filmsCM))
+              @foreach($filmsCM as $film)
+
+              <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
+                  
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif
+
+      
+          </div>
+
+
+          <h1 id="home">Amour</h1>
+          <div class="box">
+
+
+          @if(count($filmsAM))
+              @foreach($filmsAM as $film)
+
+              <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
+                  
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif
+
+      
+          </div>
      
+
+
+
     <!-- END OF MAIN CONTAINER -->
 
     <!-- LINKS -->
