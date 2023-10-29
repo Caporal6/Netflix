@@ -35,7 +35,7 @@
       <div class="box">
       @if(count($filmsAC))
               @foreach($filmsAC as $film)
-              <a href=""><img src="{{$film->photo}}"></a>
+              <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
               @endforeach
           @else
             <p>marche pas</p>
@@ -46,7 +46,7 @@
       <div class="box">
       @if(count($filmsAV))
               @foreach($filmsAV as $film)
-              <a href=""><img src="{{$film->photo}}"></a>
+              <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
               @endforeach
           @else
             <p>marche pas</p>
@@ -59,7 +59,7 @@
 
       @if(count($filmsHR))
               @foreach($filmsHR as $film)
-              <a href=""><img src="{{$film->photo}}"></a>
+              <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
               @endforeach
           @else
             <p>marche pas</p>

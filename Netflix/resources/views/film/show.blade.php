@@ -22,17 +22,35 @@
               <img src="{{ $film->photo }}" alt="" class="img-fluid w-100 h-100">
             </div>
             <div class="col-md-5 offset-md-1">
-              <h2>{{ $film->categorie }}</h2>
-              <h4>{{ $film->duree }} Min</h4>
-              <h4>{{ $film->resume }}</h4>
-              <h4>{{ $film->rating }}</h4>
-              <h4>{{ $film->annee }}</h4>
-              <h3>Acteurs</h3>
-              <ul>
-                @foreach($film->acteurs as $acteur)
-                  <li>{{ $acteur->nom }}</li>
-                @endforeach
-              </ul>
+              <div>
+                <span class="text-secondary">categorie</span>
+                <h2>{{ $film->categorie }}</h2>
+              </div>
+             <div>
+                <span class="text-secondary">durée</span>
+                <h4>{{ $film->duree }} Min</h4>
+             </div>
+              <div>
+                <span class="text-secondary">résumé</span>
+                <h4>{{ $film->resume }}</h4>
+              </div>
+              <div>
+                <span class="text-secondary">rating</span>
+                <h4>{{ $film->rating }}</h4>
+              </div>
+              <div>
+                <span class="text-secondary">année</span>
+                <h4>{{ $film->annee }}</h4>
+              </div>
+              
+              <div>
+                  <span class="text-secondary d-block">acteurs</span>
+                  
+                  @foreach($film->acteurs as $acteur)
+                    <span>{{ $acteur->nom }} - </span>
+                  @endforeach
+            
+              </div>
             </div>
       </div>
       </div>
