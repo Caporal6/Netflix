@@ -26,6 +26,14 @@
                 <span class="text-secondary">categorie</span>
                 <h2>{{ $film->categorie }}</h2>
               </div>
+               <div>
+                <span class="text-secondary">réalisaeur</span>
+                <h4>{{ $film->realisateur->nom }} Min</h4>
+             </div>
+              <div>
+                <span class="text-secondary">producteur</span>
+                <h4>{{ $film->producteur->nom }} Min</h4>
+             </div>
              <div>
                 <span class="text-secondary">durée</span>
                 <h4>{{ $film->duree }} Min</h4>
