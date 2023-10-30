@@ -16,26 +16,21 @@ class ActeurFilmSeeder extends Seeder
     {
          DB::table('acteur_film')->insert([
             ['acteur_id'=> 1,
-            'film_id' => 2
+            'film_id' => 1
             ],
              ['acteur_id'=> 2,
-            'film_id' => 3
-            ],
-             ['acteur_id'=> 4,
-            'film_id' => 3
-            ],
-            ['acteur_id'=> 3,
-            'film_id' => 2
-            ],
-             ['acteur_id'=> 4,
-            'film_id' => 2
-            ],
-             ['acteur_id'=> 5,
             'film_id' => 2
             ],
              ['acteur_id'=> 3,
-            'film_id' => 1
+            'film_id' => 3
+            ],
+            ['acteur_id'=> 4,
+            'film_id' => 4
+            ],
+             ['acteur_id'=> 5,
+            'film_id' => 5
             ]
+
          ]);
 
          

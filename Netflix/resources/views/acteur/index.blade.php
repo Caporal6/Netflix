@@ -14,11 +14,15 @@
           <h1 id="home">Acteurs</h1>
           <div class="box">
 
-            @foreach ($acteurs as $acteur)
-                 <a href="">
-                 <img src="{{ $acteur->photo }}" alt="">
-                 </a>
-            @endforeach
+          @if(count($acteurs))
+              @foreach($acteurs as $acteur)
+
+              <a href="{{ route('film.show',$acteur) }}"><img src="{{$acteur->photo}}"></a>
+                  
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif
            
           </div>
       </div>

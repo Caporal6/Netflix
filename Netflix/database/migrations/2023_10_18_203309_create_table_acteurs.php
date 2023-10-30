@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nom',50);
             $table->string('date_naissance');
             $table->string('lieux',80);
-            $table->string('photo',200);
+            $table->string('photo',500);
 
             $table->timestamps();
         });
