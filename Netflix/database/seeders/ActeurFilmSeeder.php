@@ -18,6 +18,9 @@ class ActeurFilmSeeder extends Seeder
             ['acteur_id'=> 1,
             'film_id' => 1
             ],
+            ['acteur_id'=> 1,
+            'film_id' => 2
+            ],
              ['acteur_id'=> 2,
             'film_id' => 2
             ],
@@ -29,7 +32,28 @@ class ActeurFilmSeeder extends Seeder
             ],
              ['acteur_id'=> 5,
             'film_id' => 5
-            ]
+            ],
+            ['acteur_id'=> 6,
+            'film_id' => 1
+            ],
+            ['acteur_id'=> 7,
+            'film_id' => 6
+            ],
+            ['acteur_id'=> 7,
+            'film_id' => 1
+            ],
+            ['acteur_id'=> 8,
+            'film_id' => 8
+            ],
+            ['acteur_id'=> 9,
+            'film_id' => 7
+            ],
+            ['acteur_id'=> 10,
+            'film_id' => 7
+            ],
+            ['acteur_id'=> 10,
+            'film_id' => 10
+            ],
 
          ]);
 
