@@ -18,13 +18,16 @@
               @foreach($acteurs as $acteur)
 
               <a href="{{ route('film.show',$acteur) }}"><img src="{{$acteur->photo}}"></a>
-                  
+              <div class="details">
+                <span class="title">Test</span>
+                <span class="info">Test2</span>
+            </div>
               @endforeach
           @else
             <p>marche pas</p>
           @endif
-           
-          </div>
+
+
       </div>
     
      
