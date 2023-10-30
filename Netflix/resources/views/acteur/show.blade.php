@@ -1,32 +1,55 @@
 @extends('layouts.app')
 
   @section('title')
-    Acteurs
+    acteur - {{ $acteur->nom }} 
   @endsection
   
   @section('contenue')
   <div class="wrapper">
 
+
     
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          <h1 id="home">Acteurs</h1>
-          <div class="box">
-
-          @if(count($acteurs))
-              @foreach($acteurs as $acteur)
-
-              <a href="{{ route('acteur.show',$acteur) }}"><img src="{{$acteur->photo}}"></a>
-                  
-              @endforeach
-          @else
-            <p>marche pas</p>
-          @endif
-
-
+           <h1 id="home">{{ $acteur->nom }}</h1>
       </div>
-    
+      
+      <div class="container">
+      <div class="row">
+            <div class="col-md-6">
+              <img src="{{ $acteur->photo }}" alt="" class="img-fluid w-100 h-100">
+            </div>
+            <div class="col-md-5 offset-md-1">
+             
+               <div>
+                  <span class="text-secondary">ville</span>
+                  <h2>{{ $acteur->lieux }}</h2>
+              </div>
+              <div>
+                  <span class="text-secondary">date de naissance</span>
+                  <h2>{{ $acteur->date_naissance }}</h2>
+              </div>
+             
+              <div class="mt-2">
+                  <span class="text-secondary d-block">films</span> 
+
+                 <div class="d-flex flex-row justify-content-evenly">
+                     @foreach($acteur->films as $film)
+                    
+                      <div class="px-2">
+                        <a href="{{ route('film.show',$film) }}" class="show_acteur_link">
+                        <h5 class="text-white">{{ $film->titre }}</h5>
+                        <img src="{{ $film->photo }}" alt="" class="w-50 h-50 img-fluid">
+                        </a>
+                      </div>
+                   
+                  @endforeach
+                 </div> 
+              </div>
+            </div>
+      </div>
+      </div>
      
     <!-- END OF MAIN CONTAINER -->
 

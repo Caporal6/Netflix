@@ -113,7 +113,11 @@
   .box a {
     transition: transform .3s;  
   }
-  
+
+  .show_acteur_link{
+    text-decoration: none;
+  }
+
   .box a:hover {
     transition: transform .3s;
     -ms-transform: scale(1.4);
