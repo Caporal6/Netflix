@@ -21,6 +21,6 @@ class Film extends Model
 
     public function producteur()
     {
-        return $this->belongsTo('App\Acteur','producteur_id');
+        return $this->belongsTo(Acteur::class);
     }
 }
