@@ -20,7 +20,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                   <label for="titre" class="form-label">Titre</label>
-                  <input type="titre" class="form-control @error('titre') is-invalid @enderror" id="titre" name="titre">
+                  <input value="{{ old('titre') }}" type="titre" class="form-control @error('titre') is-invalid @enderror" id="titre" name="titre">
                   @error('titre')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror      
@@ -28,7 +28,7 @@
 
                 <div class="mb-3">
                   <label for="duree" class="form-label">Durée</label>
-                  <input type="duree" class="form-control @error('duree') is-invalid @enderror" id="duree" name="duree">
+                  <input value="{{ old('duree') }}" type="duree" class="form-control @error('duree') is-invalid @enderror" id="duree" name="duree">
                    @error('duree')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror         
@@ -36,7 +36,7 @@
 
                 <div class="mb-3">
                   <label for="annee" class="form-label">Année</label>
-                  <input type="annee" class="form-control @error('annee') is-invalid @enderror" id="annee" name="annee"> 
+                  <input value="{{ old('annee') }}" type="annee" class="form-control @error('annee') is-invalid @enderror" id="annee" name="annee"> 
                    @error('annee')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror        
@@ -44,7 +44,7 @@
 
                 <div class="mb-3">
                   <label for="photo" class="form-label">Photo</label>
-                  <input type="photo" class="form-control @error('photo') is-invalid @enderror " id="photo" name="photo">
+                  <input value="{{ old('photo') }}" type="photo" class="form-control @error('photo') is-invalid @enderror " id="photo" name="photo">
                    @error('photo')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror         
@@ -52,7 +52,7 @@
 
                 <div class="mb-3">
                   <label for="rating" class="form-label">Rating</label>
-                  <input type="rating" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating">
+                  <input value="{{ old('rating') }}" type="rating" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating">
                    @error('rating')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror      
@@ -81,7 +81,7 @@
 
               <div class="mb-3">
                   <label for="categorie" class="form-label">Categorie</label>
-                  <input type="categorie" class="form-control @error('categorie') is-invalid @enderror" id="categorie" name="categorie">
+                  <input value="{{ old('categorie') }}" type="categorie" class="form-control @error('categorie') is-invalid @enderror" id="categorie" name="categorie">
                    @error('categorie')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror         
@@ -89,7 +89,7 @@
 
               <div class="mb-3">
                   <label for="resume" class="form-label">Resume</label>
-                  <textarea class="form-control h-25 @error('resume') is-invalid @enderror" name="resume" id="resume"></textarea>
+                  <textarea class="form-control h-25 @error('resume') is-invalid @enderror" name="resume" id="resume">{{ old('resume') }}</textarea>
                    @error('resume')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror         
