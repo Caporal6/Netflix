@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Acteur;
 use Illuminate\Http\Request;
+use App\Http\Requests\ActeurRequest;
+
 
 class ActeurController extends Controller
 {
@@ -16,20 +18,40 @@ class ActeurController extends Controller
         return view('acteur.index',["acteurs"=>$acteurs]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+/**
+ * Affiche le formulaire pour ajouter un produit.
+ *
+ * @return IlluminateViewView
+ */
+
     public function create()
     {
-        //
+        $noms = Acteur::orderBy('nom')->get();
+        return view('acteur.create', compact('noms'));
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+          * Store a newly created resource in storage.
+          *
+          * @param  \Illuminate\Http\Request  $request
+          * @return \Illuminate\Http\Response
+          */
+     
+    public function store(ActeurRequest $request)
     {
-        //
+                try {
+                        $acteur = new Acteur($request->all());
+                        $acteur->save();
+                    }
+                
+                    catch (\Throwable $e) {
+                        //Gérer l'erreur
+                        Log::debug($e);
+                    }
+                    return redirect()->route('acteur.index');
+            
+        
+        
     }
 
     /**

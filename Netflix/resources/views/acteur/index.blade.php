@@ -23,8 +23,8 @@
           @else
             <p>marche pas</p>
           @endif
-           
-          </div>
+
+
       </div>
     
      
@@ -61,6 +61,8 @@
     <footer>
       <p>&copy 1997-2018 Netflix, Inc.</p>
       <p>Carlos Avila &copy 2018</p>
+      <a class="btn btn-default" href="{{ route('acteur.create') }}">Ajouter</a> 
+
     </footer>
   </div>
   @endsection

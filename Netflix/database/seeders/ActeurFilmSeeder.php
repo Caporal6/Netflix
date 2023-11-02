@@ -46,7 +46,7 @@ class ActeurFilmSeeder extends Seeder
             'film_id' => 8
             ],
             ['acteur_id'=> 9,
-            'film_id' => 7
+            'film_id' => 9
             ],
             ['acteur_id'=> 10,
             'film_id' => 7
