@@ -19,9 +19,18 @@ use App\Http\Controllers\ActeurController;
 
 
 Route::get('/',[FilmController::class,'index'])->name('film.index');
-Route::get('/films/{id}',[FilmController::class,'show'])->name('film.show');
+
 
 
 Route::get('/acteurs',[ActeurController::class,'index'])->name('acteur.index');
 
+
+
+
+Route::get('/acteurs/create',[ActeurController::class,'create'])->name('acteur.create');
+
+Route::post('/acteurs',[ActeurController::class,'store'])->name('acteur.store');
+
+
 Route::get('/acteurs/{id}',[ActeurController::class,'show'])->name('acteur.show');
+Route::get('/films/{id}',[FilmController::class,'show'])->name('film.show');
