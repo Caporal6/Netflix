@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FilmRequest;
+use App\Models\Acteur;
 use App\Models\Film;
 use Illuminate\Http\Request;
 use App\Models\Films;
@@ -28,15 +30,29 @@ class FilmController extends Controller
      */
     public function create()
     {
-        //
+        $acteurs = Acteur::all();
+        return view('film.create',["acteurs"=>$acteurs]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FilmRequest $request)
     {
-        //
+        
+        $film = Film::create([
+            "titre" => $request->titre,
+            "duree"=> $request->duree,
+            "annee" => $request->annee,
+            "rating" => $request->rating,
+            "photo" => $request->photo,
+            "categorie" => $request->categorie,
+            "resume" => $request->resume,
+            "realisateur_id"=>$request->realisateur,
+            "producteur_id"=>$request->producteur
+        ]);
+
+        return redirect()->route('film.index')->with('create','film ajouté');
     }
 
     /**

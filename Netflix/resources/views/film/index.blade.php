@@ -7,11 +7,15 @@
   @section('contenue')
   <div class="wrapper">
 
-
     
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
+          @if(session('create'))
+            <div class="w-100">
+              <span class="alert alert-success">{{ session('create') }}</span>
+            </div>
+          @endif
           <h1 id="home">Populair sur Netflix</h1>
           <div class="box">
 
