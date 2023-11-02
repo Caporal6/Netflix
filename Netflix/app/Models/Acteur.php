@@ -11,6 +11,7 @@ class Acteur extends Model
 
     protected $fillable = ['nom','photo'];
 
+    
     public function films(){
         return $this->belongsToMany(Film::class);
     }

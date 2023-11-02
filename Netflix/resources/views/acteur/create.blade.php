@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
   @section('title')
-    yup
+    Relation
   @endsection
   
   @section('contenue')
@@ -10,18 +10,15 @@
 
     
     <section class="main-container">
-    <form method="post" action="{{route('acteur.store')}}">
-        @csrf
-        <select class="form-control" id="categorie_id" name="categorie_id">
-            @foreach($noms as $nom)
-                <option value="{{ $nom->id }}">{{ $nom->nom }}</option>
-            @endforeach
-        </select>
+    <form method="post" action="{{ route('acteur.store') }}">
+    @csrf
+    <div class="form-group">
+      <label for="nom">Nom de l'acteur</label>
+       <input type="text" class="form-control" id="nom" placeholder="Nom de l'acteur" name="nom">
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
 
-
-
-        <button type="submit" class="btnbtn-primary">Enregistrer</button>
-    </form>
     </section>
 
   </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Acteur;
 use Illuminate\Http\Request;
 use App\Http\Requests\ActeurRequest;
+use Illuminate\Support\Facades\Log;
 
 
 class ActeurController extends Controller
@@ -26,8 +27,8 @@ class ActeurController extends Controller
 
     public function create()
     {
-        $noms = Acteur::orderBy('nom')->get();
-        return view('acteur.create', compact('noms'));
+
+        return View('acteur.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class ActeurController extends Controller
           * @return \Illuminate\Http\Response
           */
      
-    public function store(ActeurRequest $request)
+    public function store(Request $request)
     {
                 try {
                         $acteur = new Acteur($request->all());

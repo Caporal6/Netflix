@@ -23,7 +23,6 @@ class ActeurRequest extends FormRequest
     {
         return [
             'nom' => 'max:5',
-            'date_naissance' => 'required|date',
         ];
     }
 }
