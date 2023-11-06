@@ -24,7 +24,8 @@ class ActeurRequest extends FormRequest
         return [
             'nom' => 'required|min:2',
             'date_naissance' => 'required|date',
-            'lieux' => 'max:100'
+            'lieux' => 'required|max:100',
+            'photo' => 'required',
         ];
     }
 
