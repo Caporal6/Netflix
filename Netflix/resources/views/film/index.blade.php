@@ -16,6 +16,13 @@
               <span class="alert alert-success">{{ session('create') }}</span>
             </div>
           @endif
+
+           @if(session('edit'))
+            <div class="w-100">
+              <span class="alert alert-success">{{ session('edit') }}</span>
+            </div>
+          @endif
+
           <h1 id="home">Populair sur Netflix</h1>
           <div class="box">
 

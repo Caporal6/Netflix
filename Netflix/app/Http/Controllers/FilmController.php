@@ -70,15 +70,29 @@ class FilmController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('film.edit',['film'=>Film::find($id),'acteurs'=>Acteur::all()]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(FilmRequest $request, string $id)
     {
-        //
+        $film = Film::find($id);
+    
+       $film->titre = $request->titre;
+       $film->duree = $request->duree;
+       $film->annee = $request->annee;
+       $film->rating = $request->rating;
+       $film->photo = $request->photo;
+       $film->categorie = $request->categorie;
+       $film->resume = $request->resume;
+       $film->realisateur_id= $request->realisateur;
+       $film->producteur_id = $request->producteur;
+
+       $film->save(); 
+       
+       return redirect()->route('film.index')->with('edit','film modifié');
     }
 
     /**
