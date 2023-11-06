@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Acteur;
+use App\Models\Film;
 use Illuminate\Http\Request;
 use App\Http\Requests\ActeurRequest;
 use Illuminate\Support\Facades\Log;
@@ -15,8 +16,11 @@ class ActeurController extends Controller
      */
     public function index()
     {
+
         $acteurs = Acteur::all();
         return view('acteur.index',["acteurs"=>$acteurs]);
+
+
     }
 
 /**
@@ -27,8 +31,8 @@ class ActeurController extends Controller
 
     public function create()
     {
-
-        return View('acteur.create');
+        $films = Film::all();
+        return View('acteur.create',["films"=>$films]);
     }
 
     /**
@@ -38,21 +42,19 @@ class ActeurController extends Controller
           * @return \Illuminate\Http\Response
           */
      
-    public function store(Request $request)
+    public function store(ActeurRequest $request)
     {
                 try {
                         $acteur = new Acteur($request->all());
                         $acteur->save();
                     }
-                
                     catch (\Throwable $e) {
                         //Gérer l'erreur
                         Log::debug($e);
+
                     }
                     return redirect()->route('acteur.index');
             
-        
-        
     }
 
     /**
