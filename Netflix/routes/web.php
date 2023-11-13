@@ -3,6 +3,7 @@
 use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActeurController;
+use App\Http\Controllers\UsagerController;
 
 
 /*

@@ -7,7 +7,6 @@
 @section('contenue')
   <div class="wrapper">
 
-    
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">

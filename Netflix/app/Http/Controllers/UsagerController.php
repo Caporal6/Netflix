@@ -17,16 +17,16 @@ class UsagerController extends Controller
 
     public function login(Request $request){
 
-        $data = $request->validate([
-            'email'=>['required','email'],
-            'password'=>['required']
+        $data = Auth::attempt([
+            'email'=>$request->email,
+            'password'=>$request->password
         ]);
 
-        if(Auth::attempt($data)){
-            $request->session()->regenerate();
-            return redirect()->route('film.index');
+        if($data){
+            return redirect()->route('film.index') -> with('message',"Connexion réussie");
         }else{
-            return back()->withErrors('informations invalides')->onlyInput('email');
+            return redirect()->route('login') -> withErrors(['Information invalides']);
+
         }
     }
 
