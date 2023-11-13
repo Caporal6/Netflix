@@ -22,7 +22,19 @@ class ActeurRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom' => 'max:5',
+            'nom' => 'required|min:2',
+            'date_naissance' => 'required|date',
+            'lieux' => 'required|max:100',
+            'photo' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nom.min' => 'Le nom doit avoir plus que 2 caractères',
+        ];
+    }
+
+
 }
