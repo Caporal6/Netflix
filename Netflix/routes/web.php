@@ -18,7 +18,7 @@ use App\Http\Controllers\ActeurController;
 
 
 
-Route::get('/',[FilmController::class,'index'])->name('film.index');
+Route::get('/films',[FilmController::class,'index'])->name('film.index')->middleware('auth');
 
 
 Route::get('/films/create',[FilmController::class,'create'])->name('film.create');
@@ -29,12 +29,9 @@ Route::patch('/film/update/{id}',[FilmController::class,'update'])->name('film.u
 Route::delete('/film/delete/{id}',[FilmController::class,'destroy'])->name('film.destroy');
 
 Route::get('/acteurs',[ActeurController::class,'index'])->name('acteur.index');
-
-
-
 Route::get('/acteurs/create',[ActeurController::class,'create'])->name('acteur.create');
-
 Route::post('/acteurs',[ActeurController::class,'store'])->name('acteur.store');
-
-
 Route::get('/acteurs/{id}',[ActeurController::class,'show'])->name('acteur.show');
+
+Route::get('/',[\App\Http\Controllers\UsagerController::class,'showLoginForm'])->name('showLoginForm');
+Route::post('/',[\App\Http\Controllers\UsagerController::class,'login'])->name('login');
