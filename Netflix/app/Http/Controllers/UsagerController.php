@@ -26,7 +26,7 @@ class UsagerController extends Controller
             $request->session()->regenerate();
             return redirect()->route('film.index');
         }else{
-            return back()->withErrors('informations invalides')->onlyInput('email');
+            return back()->withErrors('informations invalides');
         }
     }
 
