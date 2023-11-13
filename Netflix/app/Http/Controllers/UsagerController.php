@@ -25,8 +25,7 @@ class UsagerController extends Controller
         if($data){
             return redirect()->route('film.index') -> with('message',"Connexion réussie");
         }else{
-            return redirect()->route('login') -> withErrors(['Information invalides']);
-
+            return back()->withErrors('informations invalides');
         }
     }
 
