@@ -34,7 +34,7 @@ class UsagerController extends Controller
      */
     public function create()
     {
-        //
+        return view('usager.create');
     }
 
     /**
@@ -42,7 +42,14 @@ class UsagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $usager = new Usager($request->all());
+            $usager->save();
+        }
+        catch(\Throwable $e){
+            //yup
+        }
+        return redirect()->route('film.index');
     }
 
     /**
