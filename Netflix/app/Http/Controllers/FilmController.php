@@ -52,7 +52,7 @@ class FilmController extends Controller
             "producteur_id"=>$request->producteur
         ]);
 
-        return redirect()->route('film.index')->with('create','film ajouté');
+        return redirect()->route('film.index')->with('message','film ajouté');
     }
 
     /**
@@ -92,7 +92,7 @@ class FilmController extends Controller
 
        $film->save(); 
        
-       return redirect()->route('film.index')->with('edit','film modifié');
+       return redirect()->route('film.index')->with('message','film'.$film->nom.' modifié');
     }
 
     /**
@@ -100,6 +100,15 @@ class FilmController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            $film = Film::findOrFail($id);
+            $film->acteurs()->detatch();
+            $film->delete();
+
+            return redirect()->route('film.index')->with('message','film'.$film->nom.' supprime');
+
+        }catch(\Throwable $e){
+            return redirect()->route('film.index')->withErrors([" la suppression n'a pas fonctionné"]);
+        }
     }
 }

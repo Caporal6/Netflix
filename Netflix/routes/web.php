@@ -26,9 +26,9 @@ Route::post('/films/create',[FilmController::class,'store'])->name('film.store')
 Route::get('/films/{id}',[FilmController::class,'show'])->name('film.show');
 Route::get('/films/edit/{id}',[FilmController::class,'edit'])->name('film.edit');
 Route::patch('/film/update/{id}',[FilmController::class,'update'])->name('film.update');
+Route::delete('/film/delete/{id}',[FilmController::class,'destroy'])->name('film.destroy');
 
 Route::get('/acteurs',[ActeurController::class,'index'])->name('acteur.index');
-
 
 
 

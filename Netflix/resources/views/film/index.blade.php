@@ -11,17 +11,20 @@
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          @if(session('create'))
-            <div class="w-100">
-              <span class="alert alert-success">{{ session('create') }}</span>
-            </div>
+          @if(session('message'))
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Film</strong>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                {{ session('message') }}
+              </div>
+          </div>
           @endif
 
-           @if(session('edit'))
-            <div class="w-100">
-              <span class="alert alert-success">{{ session('edit') }}</span>
-            </div>
-          @endif
 
           <h1 id="home">Populair sur Netflix</h1>
           <div class="box">
