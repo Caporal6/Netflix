@@ -17,14 +17,13 @@ class UsagerController extends Controller
 
     public function login(Request $request){
 
-        $data = $request->validate([
-            'email'=>['required','email'],
-            'password'=>['required']
+        $data = Auth::attempt([
+            'email'=>$request->email,
+            'password'=>$request->password
         ]);
 
-        if(Auth::attempt($data)){
-            $request->session()->regenerate();
-            return redirect()->route('film.index');
+        if($data){
+            return redirect()->route('film.index') -> with('message',"Connexion réussie");
         }else{
             return back()->withErrors('informations invalides');
         }
@@ -42,7 +41,7 @@ class UsagerController extends Controller
      */
     public function create()
     {
-        //
+        return view('usager.create');
     }
 
     /**
@@ -50,7 +49,14 @@ class UsagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $usager = new Usager($request->all());
+            $usager->save();
+        }
+        catch(\Throwable $e){
+            //yup
+        }
+        return redirect()->route('film.index');
     }
 
     /**
