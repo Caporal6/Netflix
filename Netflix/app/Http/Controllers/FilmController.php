@@ -15,6 +15,7 @@ class FilmController extends Controller
      */
     public function index()
     {
+
         $films = Film::all();
         $filmsHR = Film::where('categorie', 'Horreur')->get();
         $filmsAC = Film::where('categorie', 'Action')->get();
@@ -23,6 +24,8 @@ class FilmController extends Controller
         $filmsAM = Film::where('categorie', 'Amour')->get();
 
         return View('film.index', compact('films','filmsHR','filmsAC','filmsAV','filmsCM','filmsAM'));
+
+        return view('film.index',compact('films'));
     }
 
     /**
@@ -39,7 +42,7 @@ class FilmController extends Controller
      */
     public function store(FilmRequest $request)
     {
-        
+
         $film = Film::create([
             "titre" => $request->titre,
             "duree"=> $request->duree,
@@ -79,7 +82,7 @@ class FilmController extends Controller
     public function update(FilmRequest $request, string $id)
     {
         $film = Film::find($id);
-    
+
        $film->titre = $request->titre;
        $film->duree = $request->duree;
        $film->annee = $request->annee;
@@ -90,8 +93,8 @@ class FilmController extends Controller
        $film->realisateur_id= $request->realisateur;
        $film->producteur_id = $request->producteur;
 
-       $film->save(); 
-       
+       $film->save();
+
        return redirect()->route('film.index')->with('message','film'.$film->nom.' modifié');
     }
 

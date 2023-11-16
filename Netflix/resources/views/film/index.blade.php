@@ -3,11 +3,11 @@
   @section('title')
     Films
   @endsection
-  
+
   @section('contenue')
   <div class="wrapper">
 
-    
+
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
@@ -16,7 +16,7 @@
               <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
                 <strong class="me-auto">Film</strong>
-                
+
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
@@ -34,16 +34,16 @@
               @foreach($films as $film)
 
               <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
-                  
+
               @endforeach
           @else
             <p>marche pas</p>
           @endif
 
-      
+
           </div>
       </div>
-      
+
 
       <h1 id="myList">Actions</h1>
       <div class="box">
@@ -53,9 +53,9 @@
               @endforeach
           @else
             <p>marche pas</p>
-          @endif                   
+          @endif
       </div>
-      
+
       <h1 id="tvShows">Aventures</h1>
       <div class="box">
       @if(count($filmsAV))
@@ -64,9 +64,9 @@
               @endforeach
           @else
             <p>marche pas</p>
-      @endif         
+      @endif
       </div>
-      
+
 
       <h1 id="movies">Horreurs</h1>
       <div class="box">
@@ -77,7 +77,7 @@
               @endforeach
           @else
             <p>marche pas</p>
-          @endif              
+          @endif
       </div>
 
 
@@ -89,13 +89,13 @@
               @foreach($filmsCM as $film)
 
               <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
-                  
+
               @endforeach
           @else
             <p>marche pas</p>
           @endif
 
-      
+
           </div>
 
 
@@ -107,15 +107,15 @@
               @foreach($filmsAM as $film)
 
               <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
-                  
+
               @endforeach
           @else
             <p>marche pas</p>
           @endif
 
-      
+
           </div>
-     
+
 
     <!-- END OF MAIN CONTAINER -->
 
