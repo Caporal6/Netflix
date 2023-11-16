@@ -37,5 +37,6 @@ Route::get('/acteurs/{id}',[ActeurController::class,'show'])->name('acteur.show'
 Route::get('/',[\App\Http\Controllers\UsagerController::class,'showLoginForm'])->name('showLoginForm');
 Route::post('/',[\App\Http\Controllers\UsagerController::class,'login'])->name('login');
 Route::post('/logout',[\App\Http\Controllers\UsagerController::class,'logout'])->name('logout')->middleware('auth');
+
 Route::get('/usager/create',[UsagerController::class,'create'])->name('usager.create');
-Route::post('/usager',[UsagerController::class,'create'])->name('usager.create');
+Route::post('/usager',[UsagerController::class,'store'])->name('usager.store');

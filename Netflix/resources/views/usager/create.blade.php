@@ -9,8 +9,8 @@
   <div class="wrapper">
 
     
-    <section class="main-container">
-    <form method="post" action="{{ route('acteur.store') }}">
+    <section class="main-container m-5">
+    <form method="post" action="{{ route('usager.store') }}">
     @csrf
     <div class="form-group">
       <label for="nom">email</label>
@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <label for="nom">Nom</label>
-       <input value="{{ old('nom') }}" type="text" class="form-control" id="nom" placeholder="Date de naissance" name="nom">
+       <input value="{{ old('nom') }}" type="text" class="form-control" id="nom" placeholder="Nom" name="nom">
        @error('nom')
             <div class=" text-danger">{{ $message }}</div>
         @enderror 
@@ -47,7 +47,7 @@
 
     <div class="form-group">
       <label for="nom">Password</label>
-       <input value="{{ old('password') }}" type="text" class="form-control" id="password" placeholder="password" name="password">
+       <input value="{{ old('password') }}" type="password" class="form-control" id="password" placeholder="password" name="password">
        @error('password')
             <div class=" text-danger">{{ $message }}</div>
         @enderror 

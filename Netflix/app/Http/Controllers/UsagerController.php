@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UsagerRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Usager;
+
 
 class UsagerController extends Controller
 {
@@ -41,13 +44,14 @@ class UsagerController extends Controller
      */
     public function create()
     {
+       
         return view('usager.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UsagerRequest $request)
     {
         try{
             $usager = new Usager($request->all());

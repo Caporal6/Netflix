@@ -41,6 +41,16 @@ class UsagerSeeder extends Seeder
                 'email' =>'maile@gmail.com',
                 'role'=>'admin',
                 'password' =>Hash::make('julian123')
+            ],
+
+            [
+                'id'=>4,
+                'nom'=> 'xavier',
+                'prenom' => 'ricard',
+                'nomUsager' => 'xavier',
+                'email' =>'xavier.2@hotmail.ca',
+                'role'=>'admin',
+                'password' =>Hash::make('xavier')
             ]
         ]);
     }
