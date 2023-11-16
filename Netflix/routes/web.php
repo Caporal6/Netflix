@@ -38,5 +38,5 @@ Route::get('/',[\App\Http\Controllers\UsagerController::class,'showLoginForm'])-
 Route::post('/',[\App\Http\Controllers\UsagerController::class,'login'])->name('login');
 Route::post('/logout',[\App\Http\Controllers\UsagerController::class,'logout'])->name('logout')->middleware('auth');
 
-Route::get('/usager/create',[UsagerController::class,'create'])->name('usager.create');
-Route::post('/usager',[UsagerController::class,'store'])->name('usager.store');
+Route::get('/usager/create',[UsagerController::class,'create'])->name('usager.create')->middleware(['auth','checkRole:admin']);
+Route::post('/usager',[UsagerController::class,'store'])->name('usager.store')->middleware(['auth','checkRole:admin']);
