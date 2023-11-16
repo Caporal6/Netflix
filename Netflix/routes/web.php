@@ -22,16 +22,16 @@ use App\Http\Controllers\UsagerController;
 Route::get('/films',[FilmController::class,'index'])->name('film.index')->middleware('auth');
 
 
-Route::get('/films/create',[FilmController::class,'create'])->name('film.create')->middleware(['auth','admin']);
-Route::post('/films/create',[FilmController::class,'store'])->name('film.store')->middleware(['auth','admin']);
+Route::get('/films/create',[FilmController::class,'create'])->name('film.create')->middleware(['auth','checkRole:admin']);
+Route::post('/films/create',[FilmController::class,'store'])->name('film.store')->middleware(['auth','checkRole:admin']);
 Route::get('/films/{id}',[FilmController::class,'show'])->name('film.show')->middleware('auth');
-Route::get('/films/edit/{id}',[FilmController::class,'edit'])->name('film.edit')->middleware(['auth','admin']);
-Route::patch('/film/update/{id}',[FilmController::class,'update'])->name('film.update')->middleware(['auth','admin']);
-Route::delete('/film/delete/{id}',[FilmController::class,'destroy'])->name('film.destroy')->middleware(['auth','admin']);
+Route::get('/films/edit/{id}',[FilmController::class,'edit'])->name('film.edit')->middleware(['auth','checkRole:admin']);
+Route::patch('/film/update/{id}',[FilmController::class,'update'])->name('film.update')->middleware(['auth','checkRole:admin']);
+Route::delete('/film/delete/{id}',[FilmController::class,'destroy'])->name('film.destroy')->middleware(['auth','checkRole:admin']);
 
 Route::get('/acteurs',[ActeurController::class,'index'])->name('acteur.index')->middleware('auth');
-Route::get('/acteurs/create',[ActeurController::class,'create'])->name('acteur.create')->middleware(['auth','admin']);
-Route::post('/acteurs',[ActeurController::class,'store'])->name('acteur.store')->middleware(['auth','admin']);
+Route::get('/acteurs/create',[ActeurController::class,'create'])->name('acteur.create')->middleware(['auth','checkRole:admin']);
+Route::post('/acteurs',[ActeurController::class,'store'])->name('acteur.store')->middleware(['auth','checkRole:admin']);
 Route::get('/acteurs/{id}',[ActeurController::class,'show'])->name('acteur.show')->middleware('auth');
 
 Route::get('/',[\App\Http\Controllers\UsagerController::class,'showLoginForm'])->name('showLoginForm');

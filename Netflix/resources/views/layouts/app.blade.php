@@ -22,13 +22,13 @@
     </div>
     <nav class="main-nav">
         @auth
-            @if(Auth::user()->role=='admin')
-                <a href="{{ route('film.index') }}">Films</a>
+            <a href="{{ route('film.index') }}">Films</a>
+
+            @role('admin')
+                <a href="{{ route('acteur.index') }}">Acteurs</a>
                 <a href="{{ route('film.create') }}">Ajouter film</a>
                 <a href="{{ route('acteur.create') }}">Ajouter acteur</a>
-            @endif
-
-            <a href="{{ route('acteur.index') }}">Acteurs</a>
+            @endrole
         @endauth
 
     </nav>
