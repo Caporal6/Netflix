@@ -33,9 +33,14 @@ Route::get('/acteurs',[ActeurController::class,'index'])->name('acteur.index')->
 Route::get('/acteurs/create',[ActeurController::class,'create'])->name('acteur.create')->middleware(['auth','checkRole:admin']);
 Route::post('/acteurs',[ActeurController::class,'store'])->name('acteur.store')->middleware(['auth','checkRole:admin']);
 Route::get('/acteurs/{id}',[ActeurController::class,'show'])->name('acteur.show')->middleware('auth');
+Route::get('/acteurs/{id}/modifier/',[ActeurController::class,'edit'])->name('acteur.edit')->middleware('auth');
+Route::patch('/acteurs/{id}/modifier/',[ActeurController::class,'update'])->name('acteur.update')->middleware('auth');
+
+
 
 Route::get('/',[\App\Http\Controllers\UsagerController::class,'showLoginForm'])->name('showLoginForm');
 Route::post('/',[\App\Http\Controllers\UsagerController::class,'login'])->name('login');
 Route::post('/logout',[\App\Http\Controllers\UsagerController::class,'logout'])->name('logout')->middleware('auth');
-Route::get('/usager/create',[UsagerController::class,'create'])->name('usager.create');
-Route::post('/usager',[UsagerController::class,'create'])->name('usager.create');
+
+Route::get('/usager/create',[UsagerController::class,'create'])->name('usager.create')->middleware(['auth','checkRole:admin']);
+Route::post('/usager',[UsagerController::class,'store'])->name('usager.store')->middleware(['auth','checkRole:admin']);

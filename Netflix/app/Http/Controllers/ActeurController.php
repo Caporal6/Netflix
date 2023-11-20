@@ -72,15 +72,32 @@ class ActeurController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return View('acteur.edit', ['acteur'=>Acteur::find($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ActeurRequest $request, string $id)
     {
-        //
+        $acteur = Acteur::find($id);
+                try{
+                        
+                        $acteur->nom = $request->nom;
+                        $acteur->date_naissance = $request->date_naissance; 
+                        $acteur->lieux = $request->lieux; 
+                        $acteur->photo = $request->photo; 
+
+                        
+                        $acteur->save();
+                        return redirect()->route('acteur.index')->with('message',"Modification de". $acteur->nom . "réussi!");
+                    }
+                    catch(\Throwable   $e){
+                        //Gérer   l'erreur
+                        return redirect()->route('film.index')->withErrors(['la modification n\'a pas fonctionné']);   
+                    }
+                    return redirect()->route('film.index');
+            
     }
 
     /**

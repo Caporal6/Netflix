@@ -18,12 +18,12 @@ class Usager extends \Illuminate\Foundation\Auth\User
      * @var array<int, string>
      */
     protected $fillable = [
-        'nomUsager',
-        'nom',
-        'prenom',
         'email',
+        'nom',
+        'nomUsager',
+        'prenom',
         'role',
-        'password',
+        'password'
     ];
 
     /**

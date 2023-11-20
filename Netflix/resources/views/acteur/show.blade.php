@@ -46,6 +46,13 @@
                    
                   @endforeach
                  </div> 
+
+                <div class="mt-2">
+                    <a href="{{ route('acteur.edit',[$acteur])}}" class="btn btn-primary">Modifier</a>
+                </div>
+
+
+
               </div>
             </div>
       </div>
