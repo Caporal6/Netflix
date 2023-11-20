@@ -25,7 +25,7 @@ class FilmRequest extends FormRequest
             "titre"=>"required",
             "duree"=>"required",
             "annee"=>"required",
-            "photo"=>"required",
+            "photo"=>"required|image|mimes:png,jpg,jpeg,gig|max:4096",
             "rating"=>"required",
             "realisateur"=>"required",
             "producteur"=>"required",

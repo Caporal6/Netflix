@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FilmRequest;
 use App\Models\Acteur;
 use App\Models\Film;
-use Illuminate\Http\Request;
 use App\Models\Films;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+
 
 class FilmController extends Controller
 {
@@ -15,7 +17,6 @@ class FilmController extends Controller
      */
     public function index()
     {
-
         $films = Film::all();
         $filmsHR = Film::where('categorie', 'Horreur')->get();
         $filmsAC = Film::where('categorie', 'Action')->get();
@@ -43,19 +44,33 @@ class FilmController extends Controller
     public function store(FilmRequest $request)
     {
 
-        $film = Film::create([
-            "titre" => $request->titre,
-            "duree"=> $request->duree,
-            "annee" => $request->annee,
-            "rating" => $request->rating,
-            "photo" => $request->photo,
-            "categorie" => $request->categorie,
-            "resume" => $request->resume,
-            "realisateur_id"=>$request->realisateur,
-            "producteur_id"=>$request->producteur
-        ]);
+        try {
+            $uploadFile = $request->file('photo');
+            $nomFichierUnique = str_replace('','_',$request->titre).'-'.uniqid().'.'.$uploadFile->extension();
 
-        return redirect()->route('film.index')->with('message','film ajouté');
+            try {
+                $request->photo->move(public_path('img/films'),$nomFichierUnique);
+            }catch (\FileException $e){
+
+            }
+
+            $film = Film::create([
+                "titre" => $request->titre,
+                "duree"=> $request->duree,
+                "annee" => $request->annee,
+                "rating" => $request->rating,
+                "photo" => $nomFichierUnique,
+                "categorie" => $request->categorie,
+                "resume" => $request->resume,
+                "realisateur_id"=>$request->realisateur,
+                "producteur_id"=>$request->producteur
+            ]);
+
+            return redirect()->route('film.index')->with('message','film ajouté');
+
+        }catch (\Throwable $e){
+            return  redirect()->route('film.index')->withErrors(["l'ajout n'A pas fonctionné"]);
+        }
     }
 
     /**
@@ -81,21 +96,35 @@ class FilmController extends Controller
      */
     public function update(FilmRequest $request, string $id)
     {
-        $film = Film::find($id);
+        try{
+            $uploadFile = $request->file('photo');
+            $nomFichierUnique = str_replace('','_',$request->titre).'-'.uniqid().'.'.$uploadFile->extension();
 
-       $film->titre = $request->titre;
-       $film->duree = $request->duree;
-       $film->annee = $request->annee;
-       $film->rating = $request->rating;
-       $film->photo = $request->photo;
-       $film->categorie = $request->categorie;
-       $film->resume = $request->resume;
-       $film->realisateur_id= $request->realisateur;
-       $film->producteur_id = $request->producteur;
+            try {
+                $request->photo->move(public_path('img/films'),$nomFichierUnique);
+            }catch (\FileException $e){
 
-       $film->save();
+            }
 
-       return redirect()->route('film.index')->with('message','film'.$film->nom.' modifié');
+            $film = Film::find($id);
+            $this->removeImage($film->photo);
+
+            $film->titre = $request->titre;
+            $film->duree = $request->duree;
+            $film->annee = $request->annee;
+            $film->rating = $request->rating;
+            $film->photo = $nomFichierUnique;
+            $film->categorie = $request->categorie;
+            $film->resume = $request->resume;
+            $film->realisateur_id= $request->realisateur;
+            $film->producteur_id = $request->producteur;
+
+            $film->save();
+
+            return redirect()->route('film.index')->with('message','film'.$film->nom.' modifié');
+        }catch (\Throwable $e){
+            return  redirect()->back()->withErrors(["l'ajout n'A pas fonctionné"]);
+        }
     }
 
     /**
@@ -103,15 +132,24 @@ class FilmController extends Controller
      */
     public function destroy(string $id)
     {
+
         try{
             $film = Film::findOrFail($id);
-            $film->acteurs()->detatch();
+
+            DB::table('acteur_film')->where('film_id',$film->id)->delete();
+
             $film->delete();
 
+            $this->removeImage($film->photo);
             return redirect()->route('film.index')->with('message','film'.$film->nom.' supprime');
 
         }catch(\Throwable $e){
             return redirect()->route('film.index')->withErrors([" la suppression n'a pas fonctionné"]);
         }
+    }
+
+    private function removeImage($name){
+        $file =public_path('img/films/'.$name);
+        $img=File::delete($file);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ActeurRequest;
 use App\Models\Acteur;
 use App\Models\Film;
 use Illuminate\Http\Request;
-use App\Http\Requests\ActeurRequest;
 use Illuminate\Support\Facades\Log;
 
 
@@ -41,7 +41,7 @@ class ActeurController extends Controller
           * @param  \Illuminate\Http\Request  $request
           * @return \Illuminate\Http\Response
           */
-     
+
     public function store(ActeurRequest $request)
     {
                 try {
@@ -54,7 +54,7 @@ class ActeurController extends Controller
 
                     }
                     return redirect()->route('acteur.index');
-            
+
     }
 
     /**
@@ -64,7 +64,7 @@ class ActeurController extends Controller
     {
         $acteur = Acteur::find($id);
 
-        return view('acteur.show',['acteur'=>$acteur]); 
+        return view('acteur.show',['acteur'=>$acteur]);
     }
 
     /**
