@@ -105,6 +105,18 @@ class ActeurController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        try{
+                  $acteur = Acteur::findOrFail($id);
+                  $acteur->films()->detach();
+                  $acteur->delete();
+                    return redirect()->route('acteur.index')->with('message', "Suppression de " . $acteur->nom . " réussi!");
+                }
+                catch(\Throwable $e){
+                    Log::debug($e);
+                   return redirect()->route('film.index')->withErrors(['la suppression n\'a pas fonctionné']); 
+                 }
+                    return redirect()->route('film.index');
+            
     }
 }
