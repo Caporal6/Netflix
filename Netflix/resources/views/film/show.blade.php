@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{ $film->photo }}" alt="" class="img-fluid w-100 h-100">
+                        <img src="{{asset('img/films/'. $film->photo) }}" alt="" class="img-fluid w-100 h-100">
 
                     </div>
                     <div class="col-md-5 offset-md-1">
@@ -57,17 +57,17 @@
                                 <span>{{ $acteur->nom }} - </span>
                             @endforeach
                         </div>
-                        @if(Auth::user()->role=='admin')
+                        @role('admin')
                             <div class="mt-5">
                                 <a href="{{ route('film.edit',$film) }}" class="btn btn-primary w-100">modifier</a>
 
-                                <form action="{{ route('film.destroy',$film) }}" class="mt-3">
+                                <form action="{{ route('film.destroy',$film->id) }}" class="mt-3" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger w-100" type="submit">supprimer</button>
                                 </form>
                             </div>
-                        @endif
+                        @endrole
                     </div>
                 </div>
             </div>

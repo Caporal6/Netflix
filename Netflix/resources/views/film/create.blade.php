@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-  Ajouter un film    
+  Ajouter un film
 @endsection
 
 @section('contenue')
@@ -10,11 +10,11 @@
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          <h1 id="home">Ajouter un film</h1>    
+          <h1 id="home">Ajouter un film</h1>
       </div>
-      
+
       <div class="container mt-5">
-      <form class="row" method="POST" action="{{ route('film.store') }}">
+      <form class="row" method="POST" action="{{ route('film.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="col-md-6">
                 <div class="mb-3">
@@ -22,7 +22,7 @@
                   <input value="{{ old('titre') }}" type="titre" class="form-control @error('titre') is-invalid @enderror" id="titre" name="titre">
                   @error('titre')
                       <div class=" text-danger">{{ $message }}</div>
-                  @enderror      
+                  @enderror
                 </div>
 
                 <div class="mb-3">
@@ -30,23 +30,23 @@
                   <input value="{{ old('duree') }}" type="duree" class="form-control @error('duree') is-invalid @enderror" id="duree" name="duree">
                    @error('duree')
                       <div class=" text-danger">{{ $message }}</div>
-                  @enderror         
+                  @enderror
                 </div>
 
                 <div class="mb-3">
                   <label for="annee" class="form-label">Année</label>
-                  <input value="{{ old('annee') }}" type="annee" class="form-control @error('annee') is-invalid @enderror" id="annee" name="annee"> 
+                  <input value="{{ old('annee') }}" type="annee" class="form-control @error('annee') is-invalid @enderror" id="annee" name="annee">
                    @error('annee')
                       <div class=" text-danger">{{ $message }}</div>
-                  @enderror        
+                  @enderror
                 </div>
 
                 <div class="mb-3">
                   <label for="photo" class="form-label">Photo</label>
-                  <input value="{{ old('photo') }}" type="photo" class="form-control @error('photo') is-invalid @enderror " id="photo" name="photo">
+                  <input value="{{ old('photo') }}" type="file" class="form-control @error('photo') is-invalid @enderror " id="photo" name="photo">
                    @error('photo')
                       <div class=" text-danger">{{ $message }}</div>
-                  @enderror         
+                  @enderror
                 </div>
 
                 <div class="mb-3">
@@ -54,7 +54,7 @@
                   <input value="{{ old('rating') }}" type="rating" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating">
                    @error('rating')
                       <div class=" text-danger">{{ $message }}</div>
-                  @enderror      
+                  @enderror
                 </div>
 
             </div>
@@ -66,7 +66,7 @@
                       @foreach($acteurs as $acteur)
                         <option value="{{ $acteur->id }}">{{ $acteur->nom }}</option>
                       @endforeach
-                    </select>      
+                    </select>
               </div>
 
               <div class="mb-3">
@@ -75,7 +75,7 @@
                       @foreach($acteurs as $acteur)
                         <option value="{{ $acteur->id }}">{{ $acteur->nom }}</option>
                       @endforeach
-                    </select>      
+                    </select>
               </div>
 
               <div class="mb-3">
@@ -83,7 +83,7 @@
                   <input value="{{ old('categorie') }}" type="categorie" class="form-control @error('categorie') is-invalid @enderror" id="categorie" name="categorie">
                    @error('categorie')
                       <div class=" text-danger">{{ $message }}</div>
-                  @enderror         
+                  @enderror
               </div>
 
               <div class="mb-3">
@@ -91,16 +91,16 @@
                   <textarea class="form-control h-25 @error('resume') is-invalid @enderror" name="resume" id="resume">{{ old('resume') }}</textarea>
                    @error('resume')
                       <div class=" text-danger">{{ $message }}</div>
-                  @enderror         
+                  @enderror
               </div>
 
-              
+
               </div>
 
               <button class="btn btn-primary" type="submit">Enregistrer</button>
       </form>
       </div>
-     
+
     <!-- END OF MAIN CONTAINER -->
 
     <!-- LINKS -->
@@ -135,5 +135,5 @@
       <p>&copy 1997-2018 Netflix, Inc.</p>
       <p>Carlos Avila &copy 2018</p>
     </footer>
-  </div>    
+  </div>
 @endsection
