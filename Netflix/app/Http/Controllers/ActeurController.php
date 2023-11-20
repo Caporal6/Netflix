@@ -108,7 +108,6 @@ class ActeurController extends Controller
 
         try{
                   $acteur = Acteur::findOrFail($id);
-                  $acteur->films()->detach();
                   $acteur->delete();
                     return redirect()->route('acteur.index')->with('message', "Suppression de " . $acteur->nom . " réussi!");
                 }
