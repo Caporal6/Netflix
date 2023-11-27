@@ -40,11 +40,13 @@
 
 
     <div class="form-group">
-      <label for="nom">Photo</label>
+      <label for="imageId">Photo</label>
+
        <input value="{{ old('photo', $acteur->photo) }}" type="text" class="form-control" id="photo" placeholder="Photo" name="photo">
        @error('photo')
             <div class=" text-danger">{{ $message }}</div>
         @enderror 
+
     </div>
 
 

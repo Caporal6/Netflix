@@ -10,7 +10,7 @@
 
     
     <section class="main-container">
-    <form method="post" action="{{ route('acteur.store') }}">
+    <form method="post" action="{{ route('acteur.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="nom">Nom de l'acteur</label>
@@ -38,11 +38,16 @@
 
 
     <div class="form-group">
-      <label for="nom">Photo</label>
+      <label for="imageId">Photo</label>
+      <input type="file" class="form-control-file" id="imageId" name="image">
+
+
+      <!--
        <input value="{{ old('photo') }}" type="text" class="form-control" id="photo" placeholder="Photo" name="photo">
        @error('photo')
             <div class=" text-danger">{{ $message }}</div>
         @enderror 
+      -->
     </div>
 
 

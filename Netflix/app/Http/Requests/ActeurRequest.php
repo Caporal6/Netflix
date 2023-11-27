@@ -25,7 +25,7 @@ class ActeurRequest extends FormRequest
             'nom' => 'required|min:2',
             'date_naissance' => 'required|date',
             'lieux' => 'required|max:100',
-            'photo' => 'required',
+            'photo' => 'required|image|mimes:png,jpeg,jpg,gif|max:4096',
         ];
     }
 
@@ -33,6 +33,10 @@ class ActeurRequest extends FormRequest
     {
         return [
             'nom.min' => 'Le nom doit avoir plus que 2 caractères',
+            'image.mimes' => 'Le type de fichier n\'est pas reconnu (png, jpg, gif).',
+            'image.max' => 'La taille du fichier est beaucoup trop grand.'
+
+
         ];
     }
 

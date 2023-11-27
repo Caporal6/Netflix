@@ -46,7 +46,17 @@ class ActeurController extends Controller
     {
                 try {
                         $acteur = new Acteur($request->all());
+                        $uploadedFile = $request->file('image');
+                         $nomFichierUnique = str_replace(' ', '_',$acteur->nom) . '-' . uniqid() . '.' . $uploadedFile->extension();
+                            try{
+                                $request->image->move(public_path('img/acteurs'), $nomFichierUnique);
+                            }
+                            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+                            }
+                        $acteur->photo = $nomFichierUnique;
                         $acteur->save();
+                        return redirect()->route('fims.index');
                     }
                     catch (\Throwable $e) {
                         //Gérer l'erreur
