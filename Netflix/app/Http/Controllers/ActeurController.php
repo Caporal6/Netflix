@@ -7,6 +7,8 @@ use App\Models\Acteur;
 use App\Models\Film;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 
 class ActeurController extends Controller
@@ -119,19 +121,19 @@ class ActeurController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
 
         try{
                   $acteur = Acteur::findOrFail($id);
                   $acteur->delete();
-                    return redirect()->route('acteur.index')->with('message', "Suppression de " . $acteur->nom . " réussi!");
                 }
-                catch(\Throwable $e){
+        catch(\Throwable $e){
                     Log::debug($e);
-                   return redirect()->route('film.index')->withErrors(['la suppression n\'a pas fonctionné']); 
+                    //TODO : Afficher un message d'erreur
+                   return redirect()->route('acteur.index')->withErrors(['la suppression n\'a pas fonctionné']); 
                  }
-                    return redirect()->route('film.index');
-            
+                return redirect()->route('film.index')->with('message', "Suppression de " . $acteur->nom . " réussi!");
     }
+
 }

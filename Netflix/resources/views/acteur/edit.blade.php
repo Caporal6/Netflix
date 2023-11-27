@@ -53,11 +53,7 @@
     <button type="submit" class="btn btn-primary">Modifier</button>
 </form>
 
-    <form method="POST" action="{{route('acteur.destroy',[$acteur->id]) }}">
-        @csrf
-        @method('DELETE')
-            <button type="submit" class=" btn btn-danger">Supprimer</button>
-    </form>
+
 
 
 

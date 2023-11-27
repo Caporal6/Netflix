@@ -18,7 +18,7 @@
       <div class="container">
       <div class="row">
             <div class="col-md-6">
-              <img src="{{ $acteur->photo }}" alt="" class="img-fluid w-100 h-100">
+              <img src="{{asset('img/acteurs/' .  $acteur->photo) }}" alt="" class="img-fluid w-100 h-100">
             </div>
             <div class="col-md-5 offset-md-1">
              
@@ -51,7 +51,11 @@
                     <a href="{{ route('acteur.edit',[$acteur])}}" class="btn btn-primary">Modifier</a>
                 </div>
 
-
+                <form method="POST" action="{{route('acteur.destroy',[$acteur->id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class=" btn btn-danger">Supprimer</button>
+                </form>
 
               </div>
             </div>
