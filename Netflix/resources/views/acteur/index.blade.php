@@ -13,11 +13,11 @@
       <div class="location" id="home">
           <h1 id="home">Acteurs</h1>
           <div class="box">
-
+ 
           @if(count($acteurs))
               @foreach($acteurs as $acteur)
 
-              <a href="{{ route('acteur.show',$acteur) }}"><img src="{{$acteur->photo}}"></a>
+              <a href="{{ route('acteur.show',$acteur) }}"><img src="{{ asset('img/acteurs/' .  $acteur->photo) }}" alt="{{ $acteur->nom}}" title="{{$acteur->nom}}"></a>
                   
               @endforeach
           @else

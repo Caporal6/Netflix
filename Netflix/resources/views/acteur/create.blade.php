@@ -39,15 +39,11 @@
 
     <div class="form-group">
       <label for="imageId">Photo</label>
-      <input type="file" class="form-control-file" id="imageId" name="image">
+      <input type="file" class="form-control-file" id="imageId" name="photo">
 
-
-      <!--
-       <input value="{{ old('photo') }}" type="text" class="form-control" id="photo" placeholder="Photo" name="photo">
        @error('photo')
             <div class=" text-danger">{{ $message }}</div>
         @enderror 
-      -->
     </div>
 
 
