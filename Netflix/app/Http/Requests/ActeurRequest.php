@@ -26,6 +26,7 @@ class ActeurRequest extends FormRequest
             'date_naissance' => 'required|date',
             'lieux' => 'required|max:100',
             'photo' => 'required|image|mimes:png,jpeg,jpg,gif|max:4096',
+            'categorie' => 'required'
         ];
     }
 

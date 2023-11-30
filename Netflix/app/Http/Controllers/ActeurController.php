@@ -130,7 +130,10 @@ class ActeurController extends Controller
 
         try{
                   $acteur = Acteur::findOrFail($id);
+                  $this->removeImage($acteur->photo);
                   $acteur->delete();
+                  
+
                 }
         catch(\Throwable $e){
                     Log::debug($e);
@@ -140,4 +143,10 @@ class ActeurController extends Controller
                 return redirect()->route('film.index')->with('message', "Suppression de " . $acteur->nom . " réussi!");
     }
 
+
+    
+    private function removeImage($name){
+        $file =public_path('img/acteurs/'.$name);
+        $img=File::delete($file);
+    }
 }
