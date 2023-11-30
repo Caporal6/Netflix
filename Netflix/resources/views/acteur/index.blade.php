@@ -17,7 +17,7 @@
           @if(count($acteurs))
               @foreach($acteurs as $acteur)
 
-              <a href="{{ route('acteur.show',$acteur) }}"><img src="{{ asset('img/acteurs/' .  $acteur->photo) }}" alt="{{ $acteur->nom}}" title="{{$acteur->nom}}"></a>
+              <a href="{{ route('acteur.show',$acteur) }}"><img src="{{ asset('img/acteurs/' .  $acteur->photo) }}" alt="{{ $acteur->nom}}" title="{{$acteur->nom}}" class="h-100 img-fluid"></a>
                   
               @endforeach
           @else
@@ -29,7 +29,7 @@
       <div class="box">
       @if(count($acteursActeur))
               @foreach($acteursActeur as $acteurActeur)
-              <a href="{{ route('acteur.show',$acteurActeur) }}"><img src="{{ asset('img/acteurs/' .  $acteurActeur->photo) }}" alt="{{ $acteurActeur->nom}}" title="{{$acteurActeur->nom}}"></a>
+              <a href="{{ route('acteur.show',$acteurActeur) }}"><img src="{{ asset('img/acteurs/' .  $acteurActeur->photo) }}" alt="{{ $acteurActeur->nom}}" title="{{$acteurActeur->nom}}" class="h-100 img-fluid"></a>
               @endforeach
           @else
             <p>marche pas</p>
@@ -40,7 +40,7 @@
       <div class="box">
       @if(count($acteursRealisateur))
               @foreach($acteursRealisateur as $acteurRealisateur)
-              <a href="{{ route('acteur.show',$acteurRealisateur) }}"><img src="{{ asset('img/acteurs/' .  $acteurRealisateur->photo) }}" alt="{{ $acteurRealisateur->nom}}" title="{{$acteurRealisateur->nom}}"></a>
+              <a href="{{ route('acteur.show',$acteurRealisateur) }}"><img src="{{ asset('img/acteurs/' .  $acteurRealisateur->photo) }}" alt="{{ $acteurRealisateur->nom}}" title="{{$acteurRealisateur->nom}}" class="h-100 img-fluid"></a>
               @endforeach
           @else
             <p>marche pas</p>
@@ -51,7 +51,7 @@
       <div class="box">
       @if(count($acteursProducteur))
               @foreach($acteursProducteur as $acteurProducteur)
-              <a href="{{ route('acteur.show',$acteurProducteur) }}"><img src="{{ asset('img/acteurs/' .  $acteurProducteur->photo) }}" alt="{{ $acteurProducteur->nom}}" title="{{$acteurProducteur->nom}}"></a>
+              <a href="{{ route('acteur.show',$acteurProducteur) }}"><img src="{{ asset('img/acteurs/' .  $acteurProducteur->photo) }}" alt="{{ $acteurProducteur->nom}}" title="{{$acteurProducteur->nom}}" class="h-100 img-fluid"></a>
               @endforeach
           @else
             <p>marche pas</p>

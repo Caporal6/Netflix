@@ -31,21 +31,7 @@
                   <h2>{{ $acteur->date_naissance }}</h2>
               </div>
              
-              <div class="mt-2">
-                  <span class="text-secondary d-block">films</span> 
 
-                 <div class="d-flex flex-row justify-content-evenly">
-                     @foreach($acteur->films as $film)
-                    
-                      <div class="px-2">
-                        <a href="{{ route('film.show',$film) }}" class="show_acteur_link">
-                        <h5 class="text-white">{{ $film->titre }}</h5>
-                        <img src="{{ $film->photo }}" alt="" class="w-50 h-50 img-fluid">
-                        </a>
-                      </div>
-                   
-                  @endforeach
-                 </div> 
 
                 <div class="col-12 ">
                     <div class="">
@@ -80,6 +66,23 @@
                 @endif
           </div>
       </div>
+
+
+      <div class="mt-5">
+                  <span class="text-secondary ">Films</span> 
+
+                 <div class="d-flex flex-row justify-content-evenly">
+                     @foreach($acteur->films as $film)
+                    
+                      <div class="">
+                        <a href="{{ route('film.show',$film) }}" class="show_acteur_link">
+                        <h5 class="text-white">{{ $film->titre }}</h5>
+                        <img src="{{ asset('img/films/'.$film->photo) }}" alt="" class="w-40 h-25 img-fluid">
+                        </a>
+                      </div>
+                   
+                  @endforeach
+                </div> 
       </div>
      
     <!-- END OF MAIN CONTAINER -->
