@@ -105,9 +105,9 @@ class ActeurController extends Controller
         $acteur = Acteur::find($id);
 
                 try{
-                        $uploadedFile = $request->file('photo');
+                        $uploadedFile = $request->photo;
                         $nomFichierUnique = str_replace(' ', '_',$acteur->nom) . '-' . uniqid() . '.' . $uploadedFile->extension();
-                        
+
                         $acteur->nom = $request->nom;
                         $acteur->date_naissance = $request->date_naissance; 
                         $acteur->lieux = $request->lieux; 
