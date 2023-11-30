@@ -11,7 +11,7 @@
     <!-- MAIN CONTAINER -->
     <section class="main-container" >
       <div class="location" id="home">
-          <h1 id="home">Acteurs</h1>
+          <h1 id="home">Tout les Acteurs</h1>
           <div class="box">
  
           @if(count($acteurs))
@@ -23,10 +23,52 @@
           @else
             <p>marche pas</p>
           @endif
-
-
       </div>
     
+      <h1 id="myList">Acteurs</h1>
+      <div class="box">
+      @if(count($acteursActeur))
+              @foreach($acteursActeur as $acteurActeur)
+              <a href="{{ route('acteur.show',$acteurActeur) }}"><img src="{{ asset('img/acteurs/' .  $acteurActeur->photo) }}" alt="{{ $acteurActeur->nom}}" title="{{$acteurActeur->nom}}"></a>
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif
+      </div>
+
+      <h1 id="myList">Réalisateur</h1>
+      <div class="box">
+      @if(count($acteursRealisateur))
+              @foreach($acteursRealisateur as $acteurRealisateur)
+              <a href="{{ route('acteur.show',$acteurRealisateur) }}"><img src="{{ asset('img/acteurs/' .  $acteurRealisateur->photo) }}" alt="{{ $acteurRealisateur->nom}}" title="{{$acteurRealisateur->nom}}"></a>
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif
+      </div>
+
+      <h1 id="myList">Producteur</h1>
+      <div class="box">
+      @if(count($acteursProducteur))
+              @foreach($acteursProducteur as $acteurProducteur)
+              <a href="{{ route('acteur.show',$acteurProducteur) }}"><img src="{{ asset('img/acteurs/' .  $acteurProducteur->photo) }}" alt="{{ $acteurProducteur->nom}}" title="{{$acteurProducteur->nom}}"></a>
+              @endforeach
+          @else
+            <p>marche pas</p>
+          @endif
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
      
     <!-- END OF MAIN CONTAINER -->
 

@@ -47,18 +47,38 @@
                   @endforeach
                  </div> 
 
-                <div class="mt-2">
-                    <a href="{{ route('acteur.edit',[$acteur])}}" class="btn btn-primary">Modifier</a>
+                <div class="col-12 ">
+                    <div class="">
+                        <a href="{{ route('acteur.edit',[$acteur])}}" class="btn btn-primary w-100">Modifier</a>
+                    </div>
+
+
+                    <form method="POST" action="{{route('acteur.destroy',[$acteur->id]) }}">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class=" btn btn-danger w-100 mt-3">Supprimer</button>
+                  </form>
                 </div>
 
-                <form method="POST" action="{{route('acteur.destroy',[$acteur->id]) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class=" btn btn-danger">Supprimer</button>
-                </form>
+
+
+
+
+
+
+
 
               </div>
             </div>
+            <div class="col-5 offset-md-1">
+            @if (\Session::has('erreur'))
+                <div class="alert alert-success mt-5">
+                    <ul>
+                        <li>{!! \Session::get('erreur') !!}</li>
+                    </ul>
+                </div>
+                @endif
+          </div>
       </div>
       </div>
      

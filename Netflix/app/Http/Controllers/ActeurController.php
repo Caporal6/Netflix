@@ -21,9 +21,9 @@ class ActeurController extends Controller
 
 
         $acteurs = Acteur::all();
-        $acteursActeur = Acteur::where('categorie','Acteur');
-        $acteursRealisateur = Acteur::where('categorie','Producteur');
-        $acteursProducteur = Acteur::where('categorie','Réalisateur');
+        $acteursActeur = Acteur::where('categorie','Acteur')->get();
+        $acteursRealisateur = Acteur::where('categorie','Producteur')->get();
+        $acteursProducteur = Acteur::where('categorie','Réalisateur')->get();
         return view('acteur.index',compact('acteurs','acteursActeur','acteursProducteur','acteursRealisateur'));
 
 
@@ -135,7 +135,7 @@ class ActeurController extends Controller
         catch(\Throwable $e){
                     Log::debug($e);
                     //TODO : Afficher un message d'erreur
-                   return redirect()->route('acteur.index')->withErrors(['la suppression n\'a pas fonctionné']); 
+                   return redirect()->route('acteur.show',$id)->with('erreur',"Supprimez " . $acteur->nom . " de tout les films, avant de supprimez"); 
                  }
                 return redirect()->route('film.index')->with('message', "Suppression de " . $acteur->nom . " réussi!");
     }
