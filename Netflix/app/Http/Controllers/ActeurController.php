@@ -19,8 +19,12 @@ class ActeurController extends Controller
     public function index()
     {
 
+
         $acteurs = Acteur::all();
-        return view('acteur.index',["acteurs"=>$acteurs]);
+        $acteursActeur = Acteur::where('categorie','Acteur');
+        $acteursRealisateur = Acteur::where('categorie','Producteur');
+        $acteursProducteur = Acteur::where('categorie','Réalisateur');
+        return view('acteur.index',compact('acteurs','acteursActeur','acteursProducteur','acteursRealisateur'));
 
 
     }
