@@ -34,8 +34,8 @@ class ActeurRequest extends FormRequest
     {
         return [
             'nom.min' => 'Le nom doit avoir plus que 2 caractères',
-            'image.mimes' => 'Le type de fichier n\'est pas reconnu (png, jpg, gif).',
-            'image.max' => 'La taille du fichier est beaucoup trop grand.'
+            'photo.mimes' => 'Le type de fichier n\'est pas reconnu (png, jpg, gif).',
+            'photo.max' => 'La taille du fichier est beaucoup trop grand.'
 
 
         ];

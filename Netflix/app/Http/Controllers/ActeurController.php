@@ -103,15 +103,27 @@ class ActeurController extends Controller
     public function update(ActeurRequest $request, string $id)
     {
         $acteur = Acteur::find($id);
+
                 try{
+                        $uploadedFile = $request->file('photo');
+                        $nomFichierUnique = str_replace(' ', '_',$acteur->nom) . '-' . uniqid() . '.' . $uploadedFile->extension();
                         
                         $acteur->nom = $request->nom;
                         $acteur->date_naissance = $request->date_naissance; 
                         $acteur->lieux = $request->lieux; 
-                        $acteur->photo = $request->photo; 
+                        $acteur->photo = $nomFichierUnique;
+                        $acteur->categorie = $request->categorie;
 
-                        
                         $acteur->save();
+                        try{
+                            $request->photo->move(public_path('img/acteurs'), $nomFichierUnique);
+
+                        }
+                        catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                            Log::debug("Erreur lors du téléversement du fichier. ", [$e]);
+                            
+                        }
+                        
                         return redirect()->route('acteur.index')->with('message',"Modification de". $acteur->nom . "réussi!");
                     }
                     catch(\Throwable   $e){
