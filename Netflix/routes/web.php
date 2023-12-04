@@ -42,5 +42,9 @@ Route::get('/',[\App\Http\Controllers\UsagerController::class,'showLoginForm'])-
 Route::post('/',[\App\Http\Controllers\UsagerController::class,'login'])->name('login');
 Route::post('/logout',[\App\Http\Controllers\UsagerController::class,'logout'])->name('logout')->middleware('auth');
 
+Route::get('/usager',[UsagerController::class,'index'])->name('usager.index')->middleware(['auth','checkRole:admin']);
 Route::get('/usager/create',[UsagerController::class,'create'])->name('usager.create')->middleware(['auth','checkRole:admin']);
 Route::post('/usager',[UsagerController::class,'store'])->name('usager.store')->middleware(['auth','checkRole:admin']);
+Route::delete('/usager/delete/{id}',[UsagerController::class,'destroy'])->name('usager.destroy')->middleware(['auth','checkRole:admin']);
+Route::get('/usager/edit/{id}',[UsagerController::class,'edit'])->name('usager.edit')->middleware(['auth','checkRole:admin']);
+Route::patch('/usager/modifier/{id}',[UsagerController::class,'update'])->name('usager.update')->middleware('auth','checkRole:admin');

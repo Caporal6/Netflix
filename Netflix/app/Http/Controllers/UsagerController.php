@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acteur;
+use App\Models\Film;
 use Illuminate\Http\Request;
 use App\Http\Requests\UsagerRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Usager;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 
 class UsagerController extends Controller
 {
+    public function index(){
+        $users = Usager::all();
+        return view('usager.index',['users'=>$users]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -44,7 +53,7 @@ class UsagerController extends Controller
      */
     public function create()
     {
-       
+
         return view('usager.create');
     }
 
@@ -56,6 +65,7 @@ class UsagerController extends Controller
         try{
             $usager = new Usager($request->all());
             $usager->save();
+            return redirect()->route('usager.index');
         }
         catch(\Throwable $e){
             //yup
@@ -76,15 +86,31 @@ class UsagerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('usager.edit',['user'=>Usager::find($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UsagerRequest $request, string $id)
     {
-        //
+        try{
+
+            $usager = Usager::find($id);
+
+            $usager->nom = $request->nom;
+            $usager->prenom = $request->prenom;
+            $usager->nomUsager = $request->nomUsager;
+            $usager->email = $request->email;
+            $usager->role = $request->role;
+            $usager->password = Hash::make( $request->password);
+            $usager->save();
+
+            return redirect()->route('usager.index')->with('message','film'.$usager->nom.' modifié');
+
+        }catch (\Throwable $e){
+            return  redirect()->back()->withErrors(["la modification n'a pas fonctionné"]);
+        }
     }
 
     /**
@@ -92,6 +118,15 @@ class UsagerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            $usager = Usager::findOrFail($id);
+
+            $usager->delete();
+
+            return redirect()->route('usager.index')->with('message','film'.$usager->nom.' supprime');
+
+        }catch(\Throwable $e){
+            return redirect()->route('film.index')->withErrors([" la suppression n'a pas fonctionné"]);
+        }
     }
 }
