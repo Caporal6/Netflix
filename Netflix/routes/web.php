@@ -35,6 +35,8 @@ Route::post('/acteurs',[ActeurController::class,'store'])->name('acteur.store')-
 Route::get('/acteurs/{id}',[ActeurController::class,'show'])->name('acteur.show')->middleware('auth');
 Route::get('/acteurs/{id}/modifier/',[ActeurController::class,'edit'])->name('acteur.edit')->middleware('auth');
 Route::patch('/acteurs/{id}/modifier/',[ActeurController::class,'update'])->name('acteur.update')->middleware('auth');
+Route::delete('/acteurs/delete/{id}',[ActeurController::class,'destroy'])->name('acteur.destroy')->middleware('auth');
+
 
 
 

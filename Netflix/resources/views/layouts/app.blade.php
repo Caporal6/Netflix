@@ -17,7 +17,7 @@
 <!-- HEADER -->
 <header>
     <div class="netflixLogo">
-        <a id="logo" href="#home"><img
+        <a id="logo" href="{{ route('film.index') }}"><img
                 src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image"></a>
     </div>
     <nav class="main-nav">

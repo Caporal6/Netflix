@@ -106,7 +106,7 @@
           @if(count($filmsAM))
               @foreach($filmsAM as $film)
 
-              <a href="{{ route('film.show',$film) }}"><img src="{{$film->photo}}"></a>
+              <a href="{{ route('film.show',$film) }}"><img src="{{asset('img/films/'.$film->photo)}}"></a>
 
               @endforeach
           @else

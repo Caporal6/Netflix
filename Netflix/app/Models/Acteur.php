@@ -9,12 +9,12 @@ class Acteur extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom','date_naissance','lieux','photo'];
+    protected $fillable = ['nom','date_naissance','lieux','photo','categorie'];
 
     
     public function films(){
         return $this->belongsToMany(Film::class);
     }
-    
+
     
 }
