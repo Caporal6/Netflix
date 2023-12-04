@@ -23,7 +23,7 @@ class FilmsSeeder extends Seeder
             'producteur_id' => 1,
             'annee' => 2004,
             'rating' => 5,
-            'photo' => 'Pulp Fiction-655b9ee95747d.jpg'
+            'photo' => 'pulp-656e08e334afe.jpg'
           ],
 
           [

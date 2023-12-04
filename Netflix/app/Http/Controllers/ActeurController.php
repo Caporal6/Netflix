@@ -22,8 +22,8 @@ class ActeurController extends Controller
 
         $acteurs = Acteur::all();
         $acteursActeur = Acteur::where('categorie','Acteur')->get();
-        $acteursRealisateur = Acteur::where('categorie','Producteur')->get();
-        $acteursProducteur = Acteur::where('categorie','Réalisateur')->get();
+        $acteursProducteur = Acteur::where('categorie','Producteur')->get();
+        $acteursRealisateur = Acteur::where('categorie','Réalisateur')->get();
         return view('acteur.index',compact('acteurs','acteursActeur','acteursProducteur','acteursRealisateur'));
 
 
@@ -141,9 +141,9 @@ class ActeurController extends Controller
     {
 
         try{
-                  $acteur = Acteur::findOrFail($id);
-                  $this->removeImage($acteur->photo);
+                  $acteur = Acteur::findOrFail($id); 
                   $acteur->delete();
+                  $this->removeImage($acteur->photo);
                   
 
                 }

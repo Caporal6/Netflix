@@ -25,7 +25,6 @@ return new class extends Migration
             $table->integer('annee');
             $table->integer('rating');
             $table->string('photo');
-            $table->string('age')->default('normal');
             $table->timestamps();
         });
     }

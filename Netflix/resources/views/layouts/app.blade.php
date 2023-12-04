@@ -23,9 +23,9 @@
     <nav class="main-nav">
         @auth
             <a href="{{ route('film.index') }}">Films</a>
-
+            <a href="{{ route('acteur.index') }}">Acteurs</a>
             @role('admin')
-                <a href="{{ route('acteur.index') }}">Acteurs</a>
+                
                 <a href="{{ route('film.create') }}">Ajouter film</a>
                 <a href="{{ route('acteur.create') }}">Ajouter acteur</a>
             <a href="{{ route('usager.index') }}">Utilisateurs</a>

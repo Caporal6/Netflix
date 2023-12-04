@@ -38,8 +38,8 @@
 
 
     <div class="form-group mt-3 mb-2">
-      <label for="imageId">Photo</label>
-      <input type="file" class="form-control-file" id="imageId" name="photo">
+      <label for="imageId" class="form-label">Photo</label>
+      <input type="file" class="form-control" id="imageId" name="photo">
 
        @error('photo')
             <div class=" text-danger">{{ $message }}</div>

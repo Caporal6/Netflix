@@ -33,9 +33,9 @@ Route::get('/acteurs',[ActeurController::class,'index'])->name('acteur.index')->
 Route::get('/acteurs/create',[ActeurController::class,'create'])->name('acteur.create')->middleware(['auth','checkRole:admin']);
 Route::post('/acteurs',[ActeurController::class,'store'])->name('acteur.store')->middleware(['auth','checkRole:admin']);
 Route::get('/acteurs/{id}',[ActeurController::class,'show'])->name('acteur.show')->middleware('auth');
-Route::get('/acteurs/{id}/modifier/',[ActeurController::class,'edit'])->name('acteur.edit')->middleware('auth');
-Route::patch('/acteurs/{id}/modifier/',[ActeurController::class,'update'])->name('acteur.update')->middleware('auth');
-Route::delete('/acteurs/delete/{id}',[ActeurController::class,'destroy'])->name('acteur.destroy')->middleware('auth');
+Route::get('/acteurs/{id}/modifier/',[ActeurController::class,'edit'])->name('acteur.edit')->middleware(['auth','checkRole:admin']);
+Route::patch('/acteurs/{id}/modifier/',[ActeurController::class,'update'])->name('acteur.update')->middleware(['auth','checkRole:admin']);
+Route::delete('/acteurs/delete/{id}',[ActeurController::class,'destroy'])->name('acteur.destroy')->middleware(['auth','checkRole:admin']);
 
 
 

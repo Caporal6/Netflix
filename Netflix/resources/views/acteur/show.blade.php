@@ -31,9 +31,11 @@
                   <h2>{{ $acteur->date_naissance }}</h2>
               </div>
              
+              @auth
 
-
-                <div class="col-12 ">
+            @role('admin')
+                
+            <div class="col-12 ">
                     <div class="">
                         <a href="{{ route('acteur.edit',[$acteur])}}" class="btn btn-primary w-100">Modifier</a>
                     </div>
@@ -45,6 +47,10 @@
                       <button type="submit" class=" btn btn-danger w-100 mt-3">Supprimer</button>
                   </form>
                 </div>
+            @endrole
+        @endauth
+
+
 
 
 

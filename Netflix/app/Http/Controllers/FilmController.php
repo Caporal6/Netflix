@@ -65,10 +65,11 @@ class FilmController extends Controller
                 "realisateur_id"=>$request->realisateur,
                 "producteur_id"=>$request->producteur
             ]);
-
+            
             return redirect()->route('film.index')->with('message','film ajouté');
 
         }catch (\Throwable $e){
+            dd($e);
             return  redirect()->route('film.index')->withErrors(["l'ajout n'A pas fonctionné"]);
         }
     }

@@ -27,7 +27,7 @@
 
                 <div class="mb-3">
                   <label for="duree" class="form-label">Durée</label>
-                  <input value="{{ old('duree') }}" type="duree" class="form-control @error('duree') is-invalid @enderror" id="duree" name="duree">
+                  <input value="{{ old('duree') }}" type="number" class="form-control @error('duree') is-invalid @enderror" id="duree" name="duree">
                    @error('duree')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror
@@ -35,7 +35,7 @@
 
                 <div class="mb-3">
                   <label for="annee" class="form-label">Année</label>
-                  <input value="{{ old('annee') }}" type="annee" class="form-control @error('annee') is-invalid @enderror" id="annee" name="annee">
+                  <input value="{{ old('annee') }}" type="number" class="form-control @error('annee') is-invalid @enderror" id="annee" name="annee">
                    @error('annee')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror
@@ -51,7 +51,7 @@
 
                 <div class="mb-3">
                   <label for="rating" class="form-label">Rating</label>
-                  <input value="{{ old('rating') }}" type="rating" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating">
+                  <input value="{{ old('rating') }}" type="number" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating">
                    @error('rating')
                       <div class=" text-danger">{{ $message }}</div>
                   @enderror
